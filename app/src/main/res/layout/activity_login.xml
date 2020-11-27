@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_back">
+
+    <LinearLayout
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@mipmap/whale_lines_white"
+            android:drawablePadding="10dp"
+            android:id="@+id/diving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="下潜"
+            android:textColor="@color/white"
+            android:textSize="24sp"/>
+        </LinearLayout>
+        <!--输入框-->
+    <EditText
+        android:id="@+id/account"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:drawableLeft="@mipmap/account_1"
+        android:drawablePadding="10dp"
+        android:hint="账号"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:theme="@style/MyEditText" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@mipmap/passwd_1"
+        android:drawablePadding="10dp"
+        android:hint="密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:theme="@style/MyEditText" />
+    <!--按钮-->
+    <Button
+        android:id="@+id/login"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:background="#1E90FF"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/register"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="新用户注册"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp">
+        <TextView
+            android:id="@+id/terms_of_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:text="登录即代表阅读并同意服务条款"/>
+    </RelativeLayout>
+
+</LinearLayout>
+</LinearLayout>
