@@ -3,24 +3,83 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue">
+    android:background="@color/seablue">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="80dp">
+
+
         <TextView
-            android:layout_marginLeft="20dp"
-            android:drawableLeft="@mipmap/whale_lines_white"
-            android:drawablePadding="10dp"
             android:id="@+id/diving"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:drawableLeft="@mipmap/whale_lines_white"
+            android:drawablePadding="10dp"
             android:text="下潜"
             android:textColor="@color/white"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
+
     </LinearLayout>
     <!--输入框-->
+    <EditText
+        android:id="@+id/register_account"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:drawableLeft="@mipmap/account_1"
+        android:drawablePadding="10dp"
+        android:hint="账号"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:theme="@style/MyEditText" />
+
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@mipmap/passwd_1"
+        android:drawablePadding="10dp"
+        android:hint="密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:theme="@style/MyEditText" />
+    <EditText
+        android:id="@+id/confirm_password"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@mipmap/passwd_1"
+        android:drawablePadding="10dp"
+        android:hint="确认密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:theme="@style/MyEditText" />
+    <!--按钮-->
+    <Button
+        android:id="@+id/register"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:background="#1E90FF"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
 
 
 </LinearLayout>

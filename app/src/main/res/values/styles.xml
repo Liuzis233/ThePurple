@@ -1,19 +1,19 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        //实现沉浸式但是保留电源那一栏和底部
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/seablue</item>//设置电源一栏的颜色
     </style>
     <style name="FirstTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">@color/seablue</item>
+        <item name="colorPrimaryDark">@color/seablue</item>
     </style>
     <style name="MyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/white</item>
-        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/blue</item>
     </style>
 
 </resources>

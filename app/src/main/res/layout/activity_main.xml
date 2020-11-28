@@ -1,18 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--顶部-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/seablue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/playground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="180dp"
+            android:text="广场"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <!--瀑布流布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/mesg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+    <!--底部导航栏-->
+    <LinearLayout
+        android:id="@+id/btm_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blue"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/everyday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@mipmap/everyday"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="每日一句"
+            android:textColor="@color/seablue"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/myground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@mipmap/playground"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="广场"
+            android:textColor="@color/seablue"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/myworld"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@mipmap/me"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="我"
+            android:textColor="@color/seablue"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
