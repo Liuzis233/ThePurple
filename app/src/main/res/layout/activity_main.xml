@@ -23,6 +23,59 @@
             android:textSize="24sp" />
     </LinearLayout>
 
+    <!--分区-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/main_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="首页"
+            android:textColor="@color/seablue"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/life"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="生活"
+            android:textColor="@color/seablue"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/study"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="学习"
+            android:textColor="@color/seablue"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/work"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="工作"
+            android:textColor="@color/seablue"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
     <!--瀑布流布局-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,18 +84,11 @@
         android:orientation="vertical"
         android:layout_margin="5dp">
 
-        <ImageView
-            android:id="@+id/picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-        <TextView
-            android:id="@+id/mesg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="10dp" />
     </LinearLayout>
 
     <!--底部导航栏-->
