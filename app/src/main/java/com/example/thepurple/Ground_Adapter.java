@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.thepurple.db.AccountMesg;
+
 import java.util.List;
 
 public class Ground_Adapter extends RecyclerView.Adapter<Ground_Adapter.ViewHolder> {

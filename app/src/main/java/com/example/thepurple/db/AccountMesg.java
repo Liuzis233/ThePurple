@@ -1,4 +1,6 @@
-package com.example.thepurple;
+package com.example.thepurple.db;
+
+import com.example.thepurple.R;
 
 import org.litepal.crud.LitePalSupport;
 

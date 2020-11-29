@@ -2,13 +2,15 @@ package com.example.thepurple;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.thepurple.db.Account;
+
 import org.litepal.LitePal;
 import java.util.List;
 
