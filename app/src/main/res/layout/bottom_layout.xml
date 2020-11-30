@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="3"
+    android:layout_alignParentBottom="true"
+    android:background="@color/blue"
+    android:orientation="horizontal">
+    <!--底部导航栏-->
+    <TextView
+        android:id="@+id/everyday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="3dp"
+        android:drawableTop="@mipmap/everyday"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="每日一句"
+        android:textColor="@color/seablue"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/myground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="3dp"
+        android:drawableTop="@mipmap/playground"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="广场"
+        android:textColor="@color/seablue"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/myworld"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="3dp"
+        android:drawableTop="@mipmap/me"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="我"
+        android:textColor="@color/seablue"
+        android:textSize="16sp" />
+</LinearLayout>

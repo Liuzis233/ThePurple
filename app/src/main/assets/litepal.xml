@@ -6,5 +6,6 @@
     <list>
         <mapping class="com.example.thepurple.db.Account"></mapping>
         <mapping class="com.example.thepurple.db.AccountMesg"></mapping>
+        <mapping class="com.example.thepurple.db.EverydayMesg"></mapping>
     </list>
 </litepal>

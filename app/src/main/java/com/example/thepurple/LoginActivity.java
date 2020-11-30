@@ -2,6 +2,8 @@ package com.example.thepurple;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,13 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        if(Build.VERSION.SDK_INT>=21){//系统版本号判断
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    |View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+
         accountEdit = (EditText) findViewById(R.id.account);
         passwdEdit = (EditText) findViewById(R.id.password);
         register = (TextView) findViewById(R.id.register);
@@ -41,8 +50,9 @@ public class LoginActivity extends Activity {
                         account,passwd).find(Account.class);
                 if(accounts.size() != 0){
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("account",account);
                     startActivity(intent);
-                    finish();
+                    finish();//销毁当前活动
                 }else{
                     Toast.makeText(LoginActivity.this,"account or password is invalid",
                             Toast.LENGTH_SHORT).show();

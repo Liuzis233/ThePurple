@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,27 +13,30 @@ import com.example.thepurple.db.AccountMesg;
 
 import java.util.List;
 
-public class Ground_Adapter extends RecyclerView.Adapter<Ground_Adapter.ViewHolder> {
+public class Mesg_Adapter extends RecyclerView.Adapter<Mesg_Adapter.ViewHolder> {
     private List<AccountMesg> MsgList;
     static class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView account_image;
-        TextView account_msg;
         View mesg_view;
+        TextView my_msg;//树洞内容
+        TextView submit_time;//发布时间
+        TextView msg_style;//发布类型
+        TextView msg_private;//是否仅自己可见
 
         public ViewHolder(View view){
             super(view);
             mesg_view = view;
-            account_image = (ImageView) view.findViewById(R.id.account_image);
-            account_msg = (TextView) view.findViewById(R.id.mesg);
+            my_msg = (TextView) view.findViewById(R.id.my_mesg);
+            submit_time = (TextView) view.findViewById(R.id.submit_time);
+            msg_style = (TextView) view.findViewById(R.id.msg_style);
+            msg_private = (TextView) view.findViewById(R.id.msg_private);
         }
     }
-    public Ground_Adapter(List<AccountMesg> msgs){
+    public Mesg_Adapter(List<AccountMesg> msgs){
         MsgList = msgs;
     }
-
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.default_recycler,
+    public Mesg_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mesg_recycler,
                 parent,false);
         final ViewHolder holder = new ViewHolder(view);
         //点击整个树洞消息范围都会显示
@@ -56,10 +58,17 @@ public class Ground_Adapter extends RecyclerView.Adapter<Ground_Adapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder,int position){
+    public void onBindViewHolder(Mesg_Adapter.ViewHolder holder, int position){
         AccountMesg accountmsg = MsgList.get(position);
-        holder.account_image.setImageResource(accountmsg.getImageId());
-        holder.account_msg.setText(accountmsg.getMsg());
+        holder.my_msg.setText(accountmsg.getMsg());
+        holder.submit_time.setText(accountmsg.getSubmit_time());
+        holder.msg_style.setText(accountmsg.getStyle());
+        boolean if_private = accountmsg.getIf_private();
+        if(if_private){
+            holder.msg_private.setText("仅自己可见");
+        }else{
+            holder.msg_private.setText("所有人可见");
+        }
     }
 
     @Override

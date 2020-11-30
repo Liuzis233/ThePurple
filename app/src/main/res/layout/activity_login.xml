@@ -3,17 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_back">
+    android:background="@drawable/login_background">
 
     <LinearLayout
         android:layout_marginTop="35dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/symbol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
         <TextView
             android:layout_marginLeft="20dp"
             android:drawableLeft="@mipmap/whale_lines_white"

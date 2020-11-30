@@ -53,9 +53,9 @@ public class RegisterActivity extends AppCompatActivity {
                     //跳转到主界面
                     Toast.makeText(RegisterActivity.this,"Welcome to the sea!",
                             Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
-                    finish();
+                    finish();//销毁当前活动
                 }else{//账号未重复，但是两次密码输入不一致
                     Toast.makeText(RegisterActivity.this,"Please enter the same password twice",
                             Toast.LENGTH_SHORT).show();

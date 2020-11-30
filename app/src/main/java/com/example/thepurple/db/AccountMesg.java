@@ -4,12 +4,14 @@ import com.example.thepurple.R;
 
 import org.litepal.crud.LitePalSupport;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 import java.lang.String;
 import java.util.Random;
 
-public class AccountMesg extends LitePalSupport {
+public class AccountMesg extends LitePalSupport implements Serializable {
+    //实现intent传对象，将对象序列化Serializable
     //树洞消息存储表格
     private String account;//用户账号
     private boolean if_private;
@@ -29,40 +31,55 @@ public class AccountMesg extends LitePalSupport {
     }
     public int getRandom_image(){//每条消息随机生成头像
         Random rand = new Random();
-        int image_id = rand.nextInt(10);
+        int image_id = rand.nextInt(16);
         switch (image_id){
             case 0:
-                image_id = R.mipmap.account_1;
+                image_id = R.mipmap.image_b1;
                 break;
             case 1:
-                image_id = R.mipmap.account;
+                image_id = R.mipmap.image_b2;
                 break;
             case 2:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_b3;
                 break;
             case 3:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_b4;
                 break;
             case 4:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_b5;
                 break;
             case 5:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_b6;
                 break;
             case 6:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_b7;
                 break;
             case 7:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_g1;
                 break;
             case 8:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_g2;
                 break;
             case 9:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_g3;
+                break;
+            case 10:
+                image_id = R.mipmap.image_g4;
+                break;
+            case 11:
+                image_id = R.mipmap.image_g5;
+                break;
+            case 12:
+                image_id = R.mipmap.image_g6;
+                break;
+            case 13:
+                image_id = R.mipmap.image_g7;
+                break;
+            case 14:
+                image_id = R.mipmap.image_g8;
                 break;
             default:
-                image_id = R.mipmap.passwd_1;
+                image_id = R.mipmap.image_g9;
                 break;
         }
         return image_id;
