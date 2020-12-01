@@ -52,8 +52,8 @@ public class MesgActivity extends AppCompatActivity {
         send_comment.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){//评论功能
-                if(comment.toString().length()!=0){
-                    Comments your_comment = new Comments("admin",mesg_id,comment.toString());
+                if(comment.getText().toString().length()!=0){
+                    Comments your_comment = new Comments("admin",mesg_id,comment.getText().toString());
                     your_comment.save();
                     Toast.makeText(MesgActivity.this,"发送成功",Toast.LENGTH_SHORT).show();
                 }

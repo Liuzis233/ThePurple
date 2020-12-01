@@ -56,7 +56,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //获取用户账号信息
         Intent intent = getIntent();
         account = intent.getStringExtra("account");
+        initWidght();
 
+    }
+    public void initWidght(){
+        findViewById(R.id.main_field).setOnClickListener(this);
+        findViewById(R.id.life).setOnClickListener(this);
+        findViewById(R.id.study).setOnClickListener(this);
+        findViewById(R.id.work).setOnClickListener(this);
+        findViewById(R.id.myworld).setOnClickListener(this);
+        findViewById(R.id.everyday).setOnClickListener(this);
     }
 
     @Override

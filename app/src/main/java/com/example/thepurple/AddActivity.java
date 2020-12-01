@@ -45,7 +45,7 @@ public class AddActivity extends AppCompatActivity{
         edit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(edit_text.toString().length()!=0 && if_private ){
+                if(edit_text.getText().toString().length()!=0 && if_private ){
                     //如果字符串不为空且为仅自己可见
                     AccountMesg accountmesg = new AccountMesg(account);
                     accountmesg.setMsg(edit_text.toString());
@@ -56,12 +56,12 @@ public class AddActivity extends AppCompatActivity{
                     Intent submit_intent = new Intent(AddActivity.this,MyWorldActivity.class);
                     startActivity(submit_intent);
                     finish();
-                }else if(edit_text.toString().length() == 0){//如果树洞为空
+                }else if(edit_text.getText().toString().length() == 0){//如果树洞为空
                     Toast.makeText(AddActivity.this,"树洞为空",Toast.LENGTH_SHORT).show();
                 }else{
                     //如果字符串不为空且公开发布
                     AccountMesg accountmesg = new AccountMesg(account);
-                    accountmesg.setMsg(edit_text.toString());
+                    accountmesg.setMsg(edit_text.getText().toString());
                     accountmesg.setIf_private(false);
                     accountmesg.setSubmit_time();
                     accountmesg.setStyle(style);
