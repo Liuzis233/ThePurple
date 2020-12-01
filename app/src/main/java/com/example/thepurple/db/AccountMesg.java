@@ -1,14 +1,23 @@
 package com.example.thepurple.db;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Handler;
+
 import com.example.thepurple.R;
 
 import org.litepal.crud.LitePalSupport;
 
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.lang.String;
 import java.util.Random;
+import java.util.logging.LogRecord;
+
+import static android.content.Context.ALARM_SERVICE;
 
 public class AccountMesg extends LitePalSupport implements Serializable {
     //实现intent传对象，将对象序列化Serializable
@@ -29,6 +38,7 @@ public class AccountMesg extends LitePalSupport implements Serializable {
         this.style = "default";
         this.if_private = false;
         this.imageId = getRandom_image();
+        setPrivacyAuto();//24小时以后自动变成仅自己可见的树洞
     }
     public int getRandom_image(){//每条消息随机生成头像
         Random rand = new Random();
@@ -91,7 +101,13 @@ public class AccountMesg extends LitePalSupport implements Serializable {
         this.if_private = change_privacy;
     }
     public String getAccount(){return account;}
-    public void setPrivacyAuto(){//实现发布树洞两天以后显示水平自动降为private
+    public void setPrivacyAuto(){//实现发布树洞24小时以后显示水平自动降为private
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                if_private = true;
+            }
+
+        }, 24 * 60 * 60 * 1000);
 
     }
     public void setSubmit_time(){//设置提交时间
