@@ -54,6 +54,7 @@ public class AddActivity extends AppCompatActivity{
                     accountmesg.save();
                     Toast.makeText(AddActivity.this,"发布成功",Toast.LENGTH_SHORT).show();
                     Intent submit_intent = new Intent(AddActivity.this,MyWorldActivity.class);
+                    submit_intent.putExtra("account",account);
                     startActivity(submit_intent);
                     finish();
                 }else if(edit_text.getText().toString().length() == 0){//如果树洞为空
@@ -68,6 +69,7 @@ public class AddActivity extends AppCompatActivity{
                     accountmesg.save();
                     Toast.makeText(AddActivity.this,"发布成功",Toast.LENGTH_SHORT).show();
                     Intent submit_intent = new Intent(AddActivity.this,MyWorldActivity.class);
+                    submit_intent.putExtra("account",account);
                     startActivity(submit_intent);
                     finish();
                 }
