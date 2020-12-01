@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 everday_intent.putExtra("account",account);
                 startActivity(everday_intent);
             default:
-                Toast.makeText(MainActivity.this,"点击无效",Toast.LENGTH_SHORT);
+                Toast.makeText(MainActivity.this,"点击无效",Toast.LENGTH_SHORT).show();
                 break;
         }
     }

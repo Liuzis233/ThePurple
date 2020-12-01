@@ -79,6 +79,7 @@ public class EverydayImage extends AppCompatActivity {
                     new_msg.setAccount(account);
                     new_msg.setMsg(edit);
                     new_msg.save();
+                    Toast.makeText(EverydayImage.this,"投稿成功",Toast.LENGTH_SHORT).show();
                 }else{//其他情况提示投稿失败
                     Toast.makeText(EverydayImage.this,"投稿失败",Toast.LENGTH_SHORT).show();
                 }
@@ -90,6 +91,7 @@ public class EverydayImage extends AppCompatActivity {
             public void onClick(View v){
                 Intent main_intent = new Intent(EverydayImage.this,MainActivity.class);
                 main_intent.putExtra("account",account);
+                startActivity(main_intent);
             }
         });
         my_world.setOnClickListener(new View.OnClickListener(){
@@ -97,6 +99,7 @@ public class EverydayImage extends AppCompatActivity {
             public void onClick(View v){
                 Intent my_intent = new Intent(EverydayImage.this,MyWorldActivity.class);
                 my_intent.putExtra("account",account);
+                startActivity(my_intent);
             }
         });
     }

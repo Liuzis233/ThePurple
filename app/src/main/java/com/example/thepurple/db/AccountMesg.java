@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class AccountMesg extends LitePalSupport implements Serializable {
     //实现intent传对象，将对象序列化Serializable
-    //树洞消息存储表格
+    //树洞消息存储
     private String account;//用户账号
     private boolean if_private;
     //是否设置为所有人可见，private为true,public为false,发布两天后自动改为true
@@ -27,6 +27,7 @@ public class AccountMesg extends LitePalSupport implements Serializable {
     public AccountMesg(String admin){//创建一条树洞
         this.account = admin;
         this.style = "default";
+        this.if_private = false;
         this.imageId = getRandom_image();
     }
     public int getRandom_image(){//每条消息随机生成头像
@@ -84,6 +85,7 @@ public class AccountMesg extends LitePalSupport implements Serializable {
         }
         return image_id;
     }
+    public long getId(){return this.getBaseObjId();}
     public boolean getIf_private(){return if_private;}
     public void setIf_private(boolean change_privacy){
         this.if_private = change_privacy;

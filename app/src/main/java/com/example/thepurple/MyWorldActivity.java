@@ -39,7 +39,7 @@ public class MyWorldActivity extends AppCompatActivity {
         myimage = (ImageView) findViewById(R.id.my_image);
         myimage.setImageResource(random_id);
         submit = (ImageView) findViewById(R.id.submit);
-        submit.setImageResource(R.mipmap.like_1);
+        submit.setImageResource(R.mipmap.add_mesg);
         main_ground = (TextView) findViewById(R.id.myground);
         everyday_image = (TextView) findViewById(R.id.everyday);
 
@@ -58,6 +58,7 @@ public class MyWorldActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent submit_intent = new Intent(MyWorldActivity.this,AddActivity.class);
                 submit_intent.putExtra("account",account);
+                startActivity(submit_intent);
             }
         });
 
@@ -67,6 +68,7 @@ public class MyWorldActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent main_intent = new Intent(MyWorldActivity.this,MainActivity.class);
                 main_intent.putExtra("account",account);
+                startActivity(main_intent);
             }
         });
         everyday_image.setOnClickListener(new View.OnClickListener(){
@@ -74,6 +76,7 @@ public class MyWorldActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent every_intent = new Intent(MyWorldActivity.this,EverydayImage.class);
                 every_intent.putExtra("account",account);
+                startActivity(every_intent);
             }
         });
 

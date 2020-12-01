@@ -10,7 +10,8 @@
         android:icon="@mipmap/whale"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity android:name=".AddActivity"></activity>
         <activity android:name=".MyWorldActivity" />
         <activity android:name=".MesgActivity" />
@@ -31,14 +32,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="FirstActivity"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
