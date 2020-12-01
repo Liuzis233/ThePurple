@@ -36,7 +36,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:theme="@style/MyEditText" />
 
     <EditText
@@ -52,8 +52,13 @@
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:theme="@style/MyEditText" />
+    <TextView
+        android:text="长度至少8位，包含大小写字母，数字和特殊字符中至少两类"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
     <EditText
         android:id="@+id/confirm_password"
         android:layout_width="320dp"
@@ -67,7 +72,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:theme="@style/MyEditText" />
     <!--按钮-->
     <Button

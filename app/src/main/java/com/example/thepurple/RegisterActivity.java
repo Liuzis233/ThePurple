@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.thepurple.db.Account;
+import com.example.thepurple.db.EverydayMesg;
 
 import org.litepal.LitePal;
 
@@ -27,6 +28,19 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        EverydayMesg mesg1 = new EverydayMesg();
+        mesg1.setAccount("admin");
+        mesg1.setMsg("你真的很不错!");
+        mesg1.save();
+        EverydayMesg mesg2 = new EverydayMesg();
+        mesg2.setAccount("admin");
+        mesg2.setMsg("你真的真的很不错!");
+        mesg2.save();
+        EverydayMesg mesg3 = new EverydayMesg();
+        mesg3.setAccount("admin");
+        mesg3.setMsg("你真的真的真的很不错!");
+        mesg3.save();
+
         accountEdit = (EditText) findViewById(R.id.register_account);//账户
         passwdEdit = (EditText) findViewById(R.id.register_password);//密码
         confirm_passwd = (EditText) findViewById(R.id.confirm_password); //确认密码
@@ -42,7 +56,10 @@ public class RegisterActivity extends AppCompatActivity {
                 List<Account> accounts =  LitePal.where("account = ?",
                         account).find(Account.class);
                 if(accounts.size() != 0){//账号已存在
-                    Toast.makeText(RegisterActivity.this,"The account already exists. ",
+                    Toast.makeText(RegisterActivity.this,"账号已存在 ",
+                            Toast.LENGTH_SHORT).show();
+                }else if(! if_validPasswd(passwd)){//账号通过，密码不安全
+                    Toast.makeText(RegisterActivity.this,"密码长度至少8位，包含大写，小写字母，数字和特殊字符中至少两类",
                             Toast.LENGTH_SHORT).show();
                 }else if(passwd.equals(confirmpasswd)){//两次密码输入相同，账号未重复
                     //将账号信息存入数据库
@@ -57,12 +74,31 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();//销毁当前活动
                 }else{//账号未重复，但是两次密码输入不一致
-                    Toast.makeText(RegisterActivity.this,"Please enter the same password twice",
+                    Toast.makeText(RegisterActivity.this,"两次密码输入不一致",
                             Toast.LENGTH_SHORT).show();
 
                 }
 
             }
         });
+    }
+    public boolean if_validPasswd(String mypasswd){//返回密码是否安全
+        //密码长度至少8位，包含大写，小写字母，数字和特殊字符中至少两个
+        int count=0;
+        if(mypasswd.length()-mypasswd.replaceAll("[A-Z]","").length()>0){
+            count++;
+        }
+        if(mypasswd.length()-mypasswd.replaceAll("[a-z]","").length()>0){
+            count++;
+        }
+        if(mypasswd.length()-mypasswd.replaceAll("[0-9]","").length()>0){
+            count++;
+        }
+        if(mypasswd.replaceAll("[0-9,A-Z,a-z]","").length()>0){
+            count++;
+        }
+        if(count>1&&mypasswd.length()>=7) {
+            return true;
+        }else return false;
     }
 }
