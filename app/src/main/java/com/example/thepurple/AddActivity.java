@@ -48,7 +48,7 @@ public class AddActivity extends AppCompatActivity{
                 if(edit_text.getText().toString().length()!=0 && if_private ){
                     //如果字符串不为空且为仅自己可见
                     AccountMesg accountmesg = new AccountMesg(account);
-                    accountmesg.setMsg(edit_text.toString());
+                    accountmesg.setMsg(edit_text.getText().toString());
                     accountmesg.setIf_private(true);
                     accountmesg.setSubmit_time();
                     accountmesg.save();

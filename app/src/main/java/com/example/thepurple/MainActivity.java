@@ -1,23 +1,20 @@
 package com.example.thepurple;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.thepurple.db.AccountMesg;
+import com.example.thepurple.db.EverydayMesg;
 
 import org.litepal.LitePal;
 
@@ -42,21 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LitePal.getDatabase();//获取数据库
-        init_main_msgList();//初始化各树洞列表
-        init_life_msgList();
-        init_study_msgList();
-        init_work_msgList();
-        //实现瀑布布局，初始时在首页
-        recyclerview = (RecyclerView) findViewById(R.id.recycler_view);
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,
-                StaggeredGridLayoutManager.VERTICAL);
-        recyclerview.setLayoutManager(layoutManager);
-        Ground_Adapter adapter = new Ground_Adapter(defaultMesgList);
-        recyclerview.setAdapter(adapter);
         //获取用户账号信息
         Intent intent = getIntent();
         account = intent.getStringExtra("account");
-        initWidght();
+        initWidght();//添加点击事件
+        replaceFragment(new Main_fragment());//初始碎片为默认分区
 
     }
     public void initWidght(){
@@ -68,28 +55,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.everyday).setOnClickListener(this);
     }
 
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = fragment.getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_id,fragment);
+        transaction.commit();
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_field:
-                // 当点击了首页时
-                Ground_Adapter main_adapter = new Ground_Adapter(defaultMesgList);
-                recyclerview.setAdapter(main_adapter);
+                // 当点击了首页时，跳转默认分区碎片布局
+                replaceFragment(new Main_fragment());
                 break;
             case R.id.life:
-                // 当点击了生活时
-                Ground_Adapter life_adapter = new Ground_Adapter(lifeMesgList);
-                recyclerview.setAdapter(life_adapter);
+                // 当点击了生活时，跳转生活区的碎片布局
+                replaceFragment(new Life_fragment());
                 break;
             case R.id.study:
-                // 当点击了学习时
-                Ground_Adapter study_adapter = new Ground_Adapter(studyMesgList);
-                recyclerview.setAdapter(study_adapter);
+                // 当点击了学习时，跳转学习区的碎片布局
+                replaceFragment(new Study_fragment());
                 break;
             case R.id.work:
-                // 当点击了工作时
-                Ground_Adapter work_adapter = new Ground_Adapter(workMesgList);
-                recyclerview.setAdapter(work_adapter);
+                // 当点击了工作时，跳转工作区的碎片布局
+                replaceFragment(new Work_fragment());
                 break;
             case R.id.myworld:
                 //当点击底部我的时候
