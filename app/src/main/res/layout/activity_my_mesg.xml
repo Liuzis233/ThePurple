@@ -10,9 +10,8 @@
         android:layout_height="60dp"
         android:background="@color/seablue"
         android:orientation="horizontal">
-
         <TextView
-            android:id="@+id/playground"
+            android:id="@+id/my_mesg_comments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -27,12 +26,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
-            android:id="@+id/treehole_image"
+            android:id="@+id/my_treehole_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"/>
         <TextView
-            android:id="@+id/treehole_msg"
+            android:id="@+id/my_treehole_msg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/seablue"
@@ -43,37 +42,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/likeit"
+            android:id="@+id/deleteit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="60dp"/>
         <TextView
-            android:text="点赞"
+            android:text="删除"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/likeit"
+            android:layout_toRightOf="@id/deleteit"
             android:textColor="@color/seablue"/>
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
-        <EditText
-            android:id="@+id/comment"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="我要评论"
-            android:textSize="14sp"
-            android:maxLines="1" />
 
-        <Button
-            android:id="@+id/send_comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:textColor="@color/seablue" />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -83,7 +63,7 @@
         android:layout_margin="5dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/comments_recycler"
+            android:id="@+id/my_comments_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

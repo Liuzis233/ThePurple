@@ -77,23 +77,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp">
-        <TextView
-            android:id="@+id/terms_of_user"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:textColor="@color/white"
-            android:text="登录即代表阅读并同意服务条款"/>
-    </RelativeLayout>
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp">
+            <TextView
+                android:id="@+id/terms_of_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/white"
+                android:text="登录即代表阅读并同意服务条款"/>
+        </RelativeLayout>
 
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>

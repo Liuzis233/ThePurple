@@ -46,7 +46,7 @@ public class Mesg_Adapter extends RecyclerView.Adapter<Mesg_Adapter.ViewHolder> 
                 int position = holder.getAdapterPosition();
                 AccountMesg accountmesg = MsgList.get(position);
                 //给树洞消息显示界面传递消息对象
-                Intent intent = new Intent(v.getContext(), MesgActivity.class);
+                Intent intent = new Intent(v.getContext(), MyMesgActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("account_mesg", accountmesg);
                 intent.putExtras(bundle);

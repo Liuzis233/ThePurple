@@ -11,7 +11,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddActivity"></activity>
+        <activity android:name=".MyMesgActivity"></activity>
+        <activity android:name=".AddActivity" />
         <activity android:name=".MyWorldActivity" />
         <activity android:name=".MesgActivity" />
         <activity
@@ -31,7 +32,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
