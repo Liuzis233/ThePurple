@@ -8,10 +8,9 @@
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/whale"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity android:name=".AddActivity"></activity>
         <activity android:name=".MyWorldActivity" />
         <activity android:name=".MesgActivity" />
