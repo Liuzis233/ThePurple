@@ -28,18 +28,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        EverydayMesg mesg1 = new EverydayMesg();
-        mesg1.setAccount("admin");
-        mesg1.setMsg("你真的很不错!");
-        mesg1.save();
-        EverydayMesg mesg2 = new EverydayMesg();
-        mesg2.setAccount("admin");
-        mesg2.setMsg("你真的真的很不错!");
-        mesg2.save();
-        EverydayMesg mesg3 = new EverydayMesg();
-        mesg3.setAccount("admin");
-        mesg3.setMsg("你真的真的真的很不错!");
-        mesg3.save();
 
         accountEdit = (EditText) findViewById(R.id.register_account);//账户
         passwdEdit = (EditText) findViewById(R.id.register_password);//密码

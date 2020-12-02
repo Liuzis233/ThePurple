@@ -1,7 +1,6 @@
 package com.example.thepurple;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,9 +44,7 @@ public class Ground_Adapter extends RecyclerView.Adapter<Ground_Adapter.ViewHold
                 AccountMesg accountmesg = MsgList.get(position);
                 //给树洞消息显示界面传递消息对象
                 Intent intent = new Intent(v.getContext(), MesgActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("account_mesg", accountmesg);
-                intent.putExtras(bundle);
+                intent.putExtra("account_mesg", accountmesg);
                 v.getContext().startActivity(intent);
             }
         });

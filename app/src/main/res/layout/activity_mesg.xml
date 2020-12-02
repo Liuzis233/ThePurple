@@ -23,14 +23,17 @@
     </LinearLayout>
     <!--显示树洞内容-->
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/treehole_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"/>
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp" />
         <TextView
             android:id="@+id/treehole_msg"
             android:layout_width="match_parent"
