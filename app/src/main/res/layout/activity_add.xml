@@ -3,10 +3,27 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue">
+    android:background="@color/seablue">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/seablue">
+
+        <ImageView
+            android:id="@+id/backtomyworld"
+            android:src="@mipmap/backtomyworld"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp">
+        android:layout_height="320dp"
+        android:background="@color/blue"
+        android:layout_marginTop="20dp">
         <EditText
             android:id="@+id/edit_mesg"
             android:layout_width="340dp"
@@ -18,81 +35,32 @@
             android:maxLines="3"
             android:theme="@style/MyEditText"/>
     </RelativeLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="仅自己可见还是可公布（匿名）："
-        android:textColor="@color/seablue"/>
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/private_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="仅自己可见"
-            android:textColor="@color/seablue"/>
-        <TextView
-            android:id="@+id/public_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="可公开（匿名）"
-            android:textColor="@color/seablue"/>
+        android:layout_height="wrap_content">
 
-        </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="请选择发布在那个分区（如果仅自己可见则不用选择）："
-        android:textColor="@color/seablue"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
         <TextView
-            android:id="@+id/default_style"
-            android:layout_width="0dp"
+            android:id="@+id/public_private"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="默认"
-            android:textColor="@color/seablue"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="公开"
+            android:textColor="@color/white"/>
+
         <TextView
-            android:id="@+id/life_style"
-            android:layout_width="0dp"
+            android:id="@+id/change_styles"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="生活"
-            android:textColor="@color/seablue"/>
-        <TextView
-            android:id="@+id/study_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="学习"
-            android:textColor="@color/seablue"/>
-        <TextView
-            android:id="@+id/work_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="工作"
-            android:textColor="@color/seablue"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:text="分区"
+            android:textColor="@color/white"/>
+
     </LinearLayout>
+
+
 
     <Button
         android:id="@+id/edit"
@@ -100,9 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
         android:layout_marginTop="10dp"
-        android:background="@color/seablue"
+        android:background="@color/blue"
         android:text="Submit"
-        android:textColor="@color/white" />
+        android:textColor="@color/seablue" />
 
 
 

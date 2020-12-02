@@ -1,7 +1,9 @@
 package com.example.thepurple;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,13 +19,11 @@ public class AddActivity extends AppCompatActivity{
     private EditText edit_text;
     private Button edit;
     private TextView private_style;
-    private TextView public_style;
     private TextView default_style;
-    private TextView life_style;
-    private TextView study_style;
-    private TextView work_style;
     private String style;
     private boolean if_private;
+    private String[] items = new String[]{"默认","生活", "学习", "工作"};
+    private int mWhich = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +32,8 @@ public class AddActivity extends AppCompatActivity{
         if_private = false;
         Intent intent = getIntent();//获取账号
         final String account = intent.getStringExtra("account");
-        private_style = (TextView) findViewById(R.id.private_style);
-        public_style = (TextView) findViewById(R.id.public_style);
-        default_style = (TextView) findViewById(R.id.default_style);
-        life_style = (TextView) findViewById(R.id.life_style);
-        study_style = (TextView) findViewById(R.id.study_style);
-        work_style = (TextView) findViewById(R.id.work_style);
+        private_style = (TextView) findViewById(R.id.public_private);
+        default_style = (TextView) findViewById(R.id.change_styles);
         set_private_onClickListener();//监听是否选择公开
         set_style_onClickListener();//监听是否选择发布分区
         edit_text = (EditText) findViewById(R.id.edit_mesg);
@@ -65,6 +61,22 @@ public class AddActivity extends AppCompatActivity{
                     accountmesg.setMsg(edit_text.getText().toString());
                     accountmesg.setIf_private(false);
                     accountmesg.setSubmit_time();
+                    switch (mWhich){//判断分区
+                        case 0:
+                            style = "default";
+                            break;
+                        case 1:
+                            style = "life";
+                            break;
+                        case 2:
+                            style = "study";
+                            break;
+                        case 3:
+                            style = "work";
+                            break;
+                        default:
+                            break;
+                    }
                     accountmesg.setStyle(style);
                     accountmesg.save();
                     Toast.makeText(AddActivity.this,"发布成功",Toast.LENGTH_SHORT).show();
@@ -83,47 +95,65 @@ public class AddActivity extends AppCompatActivity{
         private_style.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if_private = true;
-                Toast.makeText(AddActivity.this,"树洞仅自己可见",Toast.LENGTH_SHORT).show();
-            }
-        });
-        public_style.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if_private = false;
-                Toast.makeText(AddActivity.this,"树洞所有人可见",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(AddActivity.this);
+                dialog.setTitle("修改权限");
+                dialog.setMessage("设置树洞为仅自己可见还是所有人可见（匿名）");
+                dialog.setCancelable(false);//点返回键无法返回
+                dialog.setPositiveButton("仅自己可见", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if_private = true;
+                        private_style.setText("私密");
+                        Toast.makeText(AddActivity.this,"树洞仅自己可见",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.setNegativeButton("所有人可见（匿名）", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if_private = false;
+                        private_style.setText("公开");
+                        Toast.makeText(AddActivity.this,"树洞所有人可见",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
             }
         });
     }
 
     private void set_style_onClickListener(){
+
         default_style.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                style = "default";
-                Toast.makeText(AddActivity.this,"发布在默认分区",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(AddActivity.this);
+                dialog.setTitle("设置分区");
+                dialog.setCancelable(false);//点返回键无法返回
+                dialog.setSingleChoiceItems(items, mWhich, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        mWhich = which;
+                    }
+                });
+                dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        default_style.setText(items[mWhich]);
+                        Toast.makeText(AddActivity.this,"发布在"+items[mWhich]+"分区",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        default_style.setText("默认");
+                        mWhich = 0;
+                        Toast.makeText(AddActivity.this,"发布在"+items[mWhich]+"分区",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
             }
         });
-        life_style.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                style = "life";
-                Toast.makeText(AddActivity.this,"发布在生活区",Toast.LENGTH_SHORT).show();
-            }
-        });
-        study_style.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                style = "study";
-                Toast.makeText(AddActivity.this,"发布在学习区",Toast.LENGTH_SHORT).show();
-            }
-        });
-        work_style.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                style = "work";
-                Toast.makeText(AddActivity.this,"发布在工作区",Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 }
