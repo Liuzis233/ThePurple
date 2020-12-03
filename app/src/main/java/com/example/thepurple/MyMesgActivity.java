@@ -3,12 +3,14 @@ package com.example.thepurple;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.thepurple.db.AccountMesg;
 import com.example.thepurple.db.Comments;
@@ -19,6 +21,8 @@ import java.util.List;
 
 public class MyMesgActivity extends AppCompatActivity {
 
+    private TextView treehole_msg;
+    private ImageView treehole_image;
     private ImageView deleteit;
     private RecyclerView recyclerview;
     private List<Comments> comments_list;
@@ -27,13 +31,23 @@ public class MyMesgActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_mesg);
+        treehole_msg = (TextView) findViewById(R.id.my_treehole_msg);
+        treehole_image = (ImageView) findViewById(R.id.my_treehole_image);
         deleteit = (ImageView) findViewById(R.id.deleteit);
         deleteit.setImageResource(R.mipmap.deleteit);
         Intent intent = getIntent();
-        final AccountMesg accountMesg = (AccountMesg) intent.getSerializableExtra("account_mesg");
+        final AccountMesg accountMesg = (AccountMesg) intent.getSerializableExtra("accountMesg");
         final long mesg_id = accountMesg.getId();
+        treehole_msg.setText(accountMesg.getMsg());
+        treehole_image.setImageResource(accountMesg.getImageId());
         init_commentslist();
         //实现瀑布布局
+        recyclerview = (RecyclerView) findViewById(R.id.comments_recycler);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1,
+                StaggeredGridLayoutManager.VERTICAL);
+        recyclerview.setLayoutManager(layoutManager);
+        Comments_Adapter adapter = new Comments_Adapter(comments_list);
+        recyclerview.setAdapter(adapter);
 
         deleteit.setOnClickListener(new View.OnClickListener(){
             @Override
