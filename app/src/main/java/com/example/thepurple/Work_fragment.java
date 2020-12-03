@@ -29,8 +29,8 @@ public class Work_fragment extends Fragment {
         return view;
     }
     private List<AccountMesg> getworkMesgList(){
-        List<AccountMesg> workMesgList = LitePal.where("if_private = ? and style = ?",
-                "false","work").find(AccountMesg.class);//选出所有允许公开的工作区树洞
+        List<AccountMesg> workMesgList = LitePal.where("if_private = false and style = 'work'")
+                .find(AccountMesg.class);//选出所有允许公开的工作区树洞
         return workMesgList;
     }
 }

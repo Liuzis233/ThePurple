@@ -29,8 +29,8 @@ public class Study_fragment extends Fragment {
         return view;
     }
     private List<AccountMesg> getstudyMesgList(){
-        List<AccountMesg> studyMesgList = LitePal.where("if_private = ? and style = ?",
-                "false","study").find(AccountMesg.class);//选出所有允许公开的学习区树洞
+        List<AccountMesg> studyMesgList = LitePal.where("if_private = false and style = 'study'")
+                .find(AccountMesg.class);//选出所有允许公开的学习区树洞
         return studyMesgList;
     }
 }

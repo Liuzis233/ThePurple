@@ -29,8 +29,8 @@ public class Life_fragment extends Fragment {
         return view;
     }
     private List<AccountMesg> getlifeMesgList(){
-        List<AccountMesg> lifeMesgList = LitePal.where("if_private = ? and style = ?",
-                "false","life").find(AccountMesg.class);//选出所有允许公开的生活区树洞
+        List<AccountMesg> lifeMesgList = LitePal.where("if_private = false and style = 'life'")
+                .find(AccountMesg.class);//选出所有允许公开的生活区树洞
         return lifeMesgList;
     }
 }

@@ -60,7 +60,7 @@ public class MesgActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){//评论功能
                 if(comment.getText().toString().length()!=0){
-                    Comments your_comment = new Comments(accountMesg.getAccount(),mesg_id,comment.getText().toString());
+                    Comments your_comment = new Comments(accountMesg.getAccount(),accountMesg.getId(),comment.getText().toString());
                     your_comment.save();
                     Toast.makeText(MesgActivity.this,"发送成功",Toast.LENGTH_SHORT).show();
                 }
@@ -80,7 +80,7 @@ public class MesgActivity extends AppCompatActivity {
         });
     }
     public void init_commentslist(long mesg_id){//初始化评论列表
-        my_comments_list = LitePal.where("msg_id = ?","mesg_id").find(Comments.class);
+        my_comments_list = LitePal.where("msg_id = ?",""+mesg_id).find(Comments.class);
         //选出所有评论
     }
 }

@@ -45,10 +45,10 @@
             android:id="@+id/deleteit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="60dp"/>
+            android:layout_marginLeft="30dp"/>
         <TextView
             android:text="删除"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/deleteit"
             android:textColor="@color/seablue"/>

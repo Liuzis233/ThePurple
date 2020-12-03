@@ -40,9 +40,9 @@ public class MyMesgActivity extends AppCompatActivity {
         final long mesg_id = accountMesg.getId();
         treehole_msg.setText(accountMesg.getMsg());
         treehole_image.setImageResource(accountMesg.getImageId());
-        init_commentslist();
+        init_commentslist(mesg_id);
         //实现瀑布布局
-        recyclerview = (RecyclerView) findViewById(R.id.comments_recycler);
+        recyclerview = (RecyclerView) findViewById(R.id.my_comments_recycler);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1,
                 StaggeredGridLayoutManager.VERTICAL);
         recyclerview.setLayoutManager(layoutManager);
@@ -78,8 +78,8 @@ public class MyMesgActivity extends AppCompatActivity {
     }
 
 
-    public void init_commentslist(){//初始化评论列表
-        comments_list = LitePal.where("msg_id = ?","mesg_id").find(Comments.class);
+    public void init_commentslist(long mesg_id){//初始化评论列表
+        comments_list = LitePal.where("msg_id = ?",""+mesg_id).find(Comments.class);
         //选出所有评论
     }
 }

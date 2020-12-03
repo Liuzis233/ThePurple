@@ -49,10 +49,10 @@
             android:id="@+id/likeit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="60dp"/>
+            android:layout_marginLeft="30dp"/>
         <TextView
             android:text="点赞"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/likeit"
             android:textColor="@color/seablue"/>
