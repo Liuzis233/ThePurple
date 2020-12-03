@@ -5,17 +5,16 @@
     android:layout_height="match_parent"
     android:background="@color/seablue">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
-
-
+        android:layout_marginTop="35dp"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
         <TextView
             android:id="@+id/diving"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:drawableLeft="@mipmap/whale_lines_white"
             android:drawablePadding="10dp"
             android:text="下潜"
@@ -36,7 +35,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:theme="@style/MyEditText" />
 
     <EditText
@@ -52,7 +51,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:theme="@style/MyEditText" />
     <TextView
         android:text="长度至少8位，包含大小写字母，数字和特殊字符中至少两类"
@@ -72,7 +71,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:theme="@style/MyEditText" />
     <!--按钮-->
     <Button

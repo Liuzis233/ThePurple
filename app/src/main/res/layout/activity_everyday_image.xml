@@ -58,6 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="我要投稿每日一句（不超过20个字）"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
                 android:textSize="14sp"
                 android:maxLines="1" />
 

@@ -1,8 +1,6 @@
 package com.example.thepurple.db;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
+
 import android.os.Handler;
 
 import com.example.thepurple.R;
@@ -11,13 +9,9 @@ import org.litepal.crud.LitePalSupport;
 
 import java.io.Serializable;
 import java.text.DateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.lang.String;
 import java.util.Random;
-import java.util.logging.LogRecord;
-
-import static android.content.Context.ALARM_SERVICE;
 
 public class AccountMesg extends LitePalSupport implements Serializable {
     //实现intent传对象，将对象序列化Serializable
@@ -26,7 +20,7 @@ public class AccountMesg extends LitePalSupport implements Serializable {
     private boolean if_private;
     //是否设置为所有人可见，private为true,public为false,发布两天后自动改为true
     private Date submit_time;//发布时间
-    //private Date update_time;//更新时间
+    private String str_submit_time;//更新时间
     private String style;//发布消息分区（default，study，life，work）
     //default类型会发布到首页，其余类型会发布在各自分区以及首页
     private String msg;
@@ -38,6 +32,7 @@ public class AccountMesg extends LitePalSupport implements Serializable {
         this.style = "default";
         this.if_private = false;
         this.imageId = getRandom_image();
+        setSubmit_time();
         setPrivacyAuto();//24小时以后自动变成仅自己可见的树洞
     }
     public int getRandom_image(){//每条消息随机生成头像
@@ -112,6 +107,7 @@ public class AccountMesg extends LitePalSupport implements Serializable {
     }
     public void setSubmit_time(){//设置提交时间
         this.submit_time = new Date();
+        this.str_submit_time = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.SHORT).format(submit_time);
     }
     public String getSubmit_time(){
         String strdate = null;
@@ -124,4 +120,5 @@ public class AccountMesg extends LitePalSupport implements Serializable {
     public void setMsg(String account_msg){this.msg = account_msg;}
     public String getMsg(){return msg;}
     public int getImageId(){return imageId;}
+    public Date gettime(){return this.submit_time;}//得到提交树洞消息的时间
 }

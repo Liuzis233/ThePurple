@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.thepurple.db.Account;
+import com.example.thepurple.db.AccountMesg;
 import com.example.thepurple.db.EverydayMesg;
 
 import org.litepal.LitePal;

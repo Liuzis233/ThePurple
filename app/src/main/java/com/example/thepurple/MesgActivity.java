@@ -17,7 +17,10 @@ import com.example.thepurple.db.AccountMesg;
 import com.example.thepurple.db.Comments;
 
 import org.litepal.LitePal;
+import org.litepal.crud.DataSupport;
+import org.litepal.crud.LitePalSupport;
 
+import java.util.Date;
 import java.util.List;
 
 public class MesgActivity extends AppCompatActivity {
@@ -44,8 +47,7 @@ public class MesgActivity extends AppCompatActivity {
         likeit.setImageResource(R.mipmap.like);//默认是不点赞状态
         Intent intent = getIntent();
         final AccountMesg accountMesg = (AccountMesg) intent.getSerializableExtra("account_mesg");
-        final long mesg_id = accountMesg.getId();
-        init_commentslist(mesg_id);
+        init_commentslist(accountMesg.getAccount(),accountMesg.getSubmit_time());
         treehole_msg.setText(accountMesg.getMsg());
         treehole_image.setImageResource(accountMesg.getImageId());
         //实现瀑布布局
@@ -60,7 +62,7 @@ public class MesgActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){//评论功能
                 if(comment.getText().toString().length()!=0){
-                    Comments your_comment = new Comments(accountMesg.getAccount(),accountMesg.getId(),comment.getText().toString());
+                    Comments your_comment = new Comments(accountMesg.getAccount(),accountMesg.getSubmit_time(),comment.getText().toString());
                     your_comment.save();
                     Toast.makeText(MesgActivity.this,"发送成功",Toast.LENGTH_SHORT).show();
                 }
@@ -79,8 +81,8 @@ public class MesgActivity extends AppCompatActivity {
             }
         });
     }
-    public void init_commentslist(long mesg_id){//初始化评论列表
-        my_comments_list = LitePal.where("msg_id = ?",""+mesg_id).find(Comments.class);
-        //选出所有评论
+    public void init_commentslist(String account, String submit_time){//初始化评论列表
+        my_comments_list = LitePal.where("account = ? and submit_mesg_time = ?",account,submit_time).find(Comments.class);
+        //根据评论对应消息的账号和消息发布时间选出所有评论
     }
 }
