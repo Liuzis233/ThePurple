@@ -41,7 +41,7 @@ public class MyMesgActivity extends AppCompatActivity {
         final AccountMesg accountMesg = (AccountMesg) intent.getSerializableExtra("accountMesg");
         treehole_msg.setText(accountMesg.getMsg());
         treehole_image.setImageResource(accountMesg.getImageId());
-        init_commentslist(accountMesg.getAccount(),accountMesg.gettime());
+        init_commentslist(accountMesg.getSubmit_time());
         //实现瀑布布局
         recyclerview = (RecyclerView) findViewById(R.id.my_comments_recycler);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1,
@@ -61,11 +61,11 @@ public class MyMesgActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent1 = new Intent(MyMesgActivity.this,MyWorldActivity.class);
-                        LitePal.deleteAll(AccountMesg.class, "str_submit_time =%s"+accountMesg.getSubmit_time()
-                                +" and account = "+accountMesg.getAccount());
+                        LitePal.deleteAll(AccountMesg.class, "account = ? and str_submit_time = ?",accountMesg.getAccount(),
+                                accountMesg.getSubmit_time());
                         //根据提交时间和账户找出树洞消息并删除
-                        LitePal.deleteAll(Comments.class, "submit_mesg_time = "+accountMesg.getSubmit_time()
-                                +" and account = "+accountMesg.getAccount());
+                        LitePal.deleteAll(Comments.class, "account =? and submit_mesg_time = ?",accountMesg.getAccount(),
+                                accountMesg.getSubmit_time());
                         //根据提交时间和账户找出树洞评论并删除
                         Toast.makeText(MyMesgActivity.this,"成功删除",Toast.LENGTH_SHORT).show();
                         intent1.putExtra("account",accountMesg.getAccount());
@@ -85,8 +85,8 @@ public class MyMesgActivity extends AppCompatActivity {
     }
 
 
-    public void init_commentslist(String account, Date submit_time){//初始化评论列表
-        comments_list = LitePal.where("account = ? and submit_mesg_time = ?",account,""+submit_time).find(Comments.class);
+    public void init_commentslist(String submit_time){//初始化评论列表
+        comments_list = LitePal.where("submit_mesg_time = ?",submit_time).find(Comments.class);
         //根据评论对应消息的账号和消息发布时间选出所有评论
     }
 }

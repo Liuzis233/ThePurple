@@ -47,7 +47,7 @@ public class MesgActivity extends AppCompatActivity {
         likeit.setImageResource(R.mipmap.like);//默认是不点赞状态
         Intent intent = getIntent();
         final AccountMesg accountMesg = (AccountMesg) intent.getSerializableExtra("account_mesg");
-        init_commentslist(accountMesg.getAccount(),accountMesg.getSubmit_time());
+        init_commentslist(accountMesg.getSubmit_time());
         treehole_msg.setText(accountMesg.getMsg());
         treehole_image.setImageResource(accountMesg.getImageId());
         //实现瀑布布局
@@ -81,8 +81,8 @@ public class MesgActivity extends AppCompatActivity {
             }
         });
     }
-    public void init_commentslist(String account, String submit_time){//初始化评论列表
-        my_comments_list = LitePal.where("account = ? and submit_mesg_time = ?",account,submit_time).find(Comments.class);
+    public void init_commentslist(String submit_time){//初始化评论列表
+        my_comments_list = LitePal.where("submit_mesg_time = ?",submit_time).find(Comments.class);
         //根据评论对应消息的账号和消息发布时间选出所有评论
     }
 }

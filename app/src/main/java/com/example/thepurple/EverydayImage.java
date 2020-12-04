@@ -139,7 +139,7 @@ public class EverydayImage extends AppCompatActivity {
         Random rand = new Random();
         int msg_num = LitePal.count(EverydayMesg.class);//求数据库中标的数量
         if(msg_num == 0){
-            day_mesg = "你真的真的很不错!";
+            day_mesg = "你真的真的真的真的真的真的真的很不错!";
         }else{
             int image_id = rand.nextInt(msg_num)+1;//随机取出一句话
             day_mesg = LitePal.find(EverydayMesg.class,image_id).getMsg();
