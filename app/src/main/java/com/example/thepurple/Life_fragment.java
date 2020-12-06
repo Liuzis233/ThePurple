@@ -13,6 +13,7 @@ import com.example.thepurple.db.AccountMesg;
 
 import org.litepal.LitePal;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Life_fragment extends Fragment {
@@ -31,6 +32,7 @@ public class Life_fragment extends Fragment {
     private List<AccountMesg> getlifeMesgList(){
         List<AccountMesg> lifeMesgList = LitePal.where("if_private = false and style = 'life'")
                 .find(AccountMesg.class);//选出所有允许公开的生活区树洞
+        Collections.reverse(lifeMesgList);//倒序
         return lifeMesgList;
     }
 }

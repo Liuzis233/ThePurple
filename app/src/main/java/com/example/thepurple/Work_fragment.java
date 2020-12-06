@@ -13,6 +13,7 @@ import com.example.thepurple.db.AccountMesg;
 
 import org.litepal.LitePal;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Work_fragment extends Fragment {
@@ -31,6 +32,7 @@ public class Work_fragment extends Fragment {
     private List<AccountMesg> getworkMesgList(){
         List<AccountMesg> workMesgList = LitePal.where("if_private = false and style = 'work'")
                 .find(AccountMesg.class);//选出所有允许公开的工作区树洞
+        Collections.reverse(workMesgList);//倒序
         return workMesgList;
     }
 }
